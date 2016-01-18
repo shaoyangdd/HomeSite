@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<!--
+	write by KangShaofei
+    1025309600@qq.com
+-->
+<html>
+	<head>
+		<title>我的个人网站</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+	</head>
+	<body>
+		<!-- Header -->
+		<div id="header">
+			<div class="container">
+
+				  <!-- Logo -->
+		        <div id="logo">
+		            <h1>
+		            	<a href="#" style="font-family:YouYuan;color:white;font-size:40px">生活就是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            			<br>
+            			<a  style="font-family:YouYuan;color:white;font-size:40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简单&享受</a>
+		            </h1>
+		        </div>
+
+		        <!-- Nav -->
+		        <nav id="nav">
+		            <ul>
+		                <li><a href="index.html">主页</a></li>
+		                <li class="active"><a href="left-sidebar.html">生活</a></li>
+		                <li><a href="no-sidebar.html">工作</a></li>
+		            </ul>
+		        </nav>
+			</div>
+		</div>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="container">
+				<div class="row">
+
+					<!-- Sidebar -->
+					<div id="sidebar" class="4u">
+						<section>
+							<header>
+								<h2>更多视频</h2>
+							</header>
+							<ul class="style">
+								<li>
+									<p class="posted">August 11, 2002  </p>
+									<img src="images/pic04.jpg" alt="" onclick="window.location.href='http://v.youku.com/v_show/id_XMTM3MzUyNTY1Ng==.html'"/>
+									<p class="text">曳舞旅程</p>
+								</li>
+								<li>
+									<p class="posted">August 11, 2002  </p>
+									<img src="images/pic05.jpg" alt="" onclick="window.location.href='http://v.youku.com/v_show/id_XMTM0NzM0NzU3Mg==.html'"/>
+									<p class="text">一个人的午后、黄昏 </p>
+								</li>
+								<li>
+									<p class="posted">August 11, 2002  </p>
+									<img src="images/pic06.jpg" alt="" onclick="window.location.href='http://v.youku.com/v_show/id_XMTMzNDc1Nzc3Ng==.html'"/>
+									<p class="text">Dancing in XT 2015-09-12 </p>
+								</li>
+								<li>
+									<p class="posted">August 11, 2002  </p>
+									<img src="images/pic05.jpg" alt="" onclick="window.location.href='http://v.youku.com/v_show/id_XMTMzNDc1Nzc3Ng==.html'"/>
+									<p class="text">Dancing in longzhou park </p>
+								</li>
+							</ul>
+						
+						</section>
+					</div>
+
+					<!-- Content -->
+					<div id="content" class="8u skel-cell-important">
+						<section>
+							<header>
+								<h2>曳步舞</h2>
+								<br>
+								<span class="byline">最新视频: 晴天-shuffle</span>
+							</header>
+
+							<!-- 优酷视频 vid为优酷视频中链接的ID "http://v.youku.com/v_show/id_XMTM3MzUyNTY1Ng==.html?from=y1.7-1.2" id_后面到.之间的为id-->
+							<div id="youkuplayer" style="width:960px;height:800px"></div>
+    						<script type="text/javascript" src="http://player.youku.com/jsapi">
+							        player = new YKU.Player('youkuplayer',{
+							            styleid: '0',
+							            client_id: '1fdd9c29a6f0c5f3',
+							            vid: 'XMTQwNDk4NDI0MA=='
+							        });
+    						</script>
+							<div>
+								<br>
+								<p>生活就是一段曳步舞，有起有落</p>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div id="featured">
+			<div class="container">
+				<div class="row">
+					<div class="4u">
+						<h2>读过的书</h2>
+						<a href="#" class="image full"><img src="images/pic01.jpg" alt="" /></a>
+						<p>最喜欢一个人静静地看着书，每有会意品口清茶，书香茶也香。人生，不过如此</p>
+						<p><a href="#" class="button">恩，是这样的</a></p>
+					</div>
+					<div class="4u">
+						<h2>走过的路</h2>
+						<a href="#" class="image full"><img src="images/pic02.jpg" alt="" /></a>
+						<p>从小大到，因为学习工作走过了太多的路，如今回头忘一下，其实也挺美好</p>
+						<p><a href="#" class="button">回忆吧</a></p>
+					</div>
+					<div class="4u">
+						<h2>还有好多好多</h2>
+						<a href="#" class="image full"><img src="images/pic03.jpg" alt="" /></a>
+						<p>还有什么呢？太多了，留着以后想写什么就写什么吧！……</p>
+						<p><a href="#" class="button">更多</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				  <p>QQ:1025309600</p>
+    			<P>微信：shaofeigg</P>
+        			版权归哥所有
+			</div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	var ua = window.navigator.userAgent;
+	var system = "";
+	if(ua.indexOf("Linux")!=-1){
+		document.getElementById("youkuplayer").style.width="300px";
+		document.getElementById("youkuplayer").style.height="250px";
+	}
+	else if(ua.indexOf("iPad")!=-1){
+		document.getElementById("youkuplayer").style.width="500px";
+		document.getElementById("youkuplayer").style.height="360px";
+	}
+	else{
+		document.getElementById("youkuplayer").style.width="750px";
+		document.getElementById("youkuplayer").style.height="600px";
+	}
+</script>
