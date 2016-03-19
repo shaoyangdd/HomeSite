@@ -22,7 +22,7 @@ public class CommentDaoImpl implements CommentDao{
 	private JdbcTemplate jdbcTemplate;
 	
 	public void saveComment(Comment comment) {
-		String sql = "insert into homesite.COMMENTS(user_id,comments,ext_fld,contact) values (?,?,?)";
+		String sql = "insert into homesite.COMMENTS(user_id,comments,ext_fld,contact) values (?,?,?,?)";
 		jdbcTemplate.update(sql, new Object[]{comment.getUserId(),comment.getComments(),comment.getExtFld(),comment.getContact()});
 	}
 
