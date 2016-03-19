@@ -10,6 +10,7 @@ public class Comment {
 	private int userId;
 	private String comments;
 	private String time;
+	private String contact;
 	private String extFld;
 	public int getId() {
 		return id;
@@ -40,6 +41,12 @@ public class Comment {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 	
 }
