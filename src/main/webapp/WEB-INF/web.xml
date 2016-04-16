@@ -11,6 +11,7 @@
 		<param-value>/WEB-INF/configs/spring/applicationContext*.xml</param-value>
 	</context-param>
 
+	<context-param> <param-name>kmRootKey</param-name> <param-value>km.root</param-value> </context-param>
 	<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener

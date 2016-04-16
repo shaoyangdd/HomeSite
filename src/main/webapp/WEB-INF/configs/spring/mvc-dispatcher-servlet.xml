@@ -29,7 +29,20 @@
 	<mvc:annotation-driven/>
 
 	<!-- 静态资源处理， css， js， imgs -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/resources/**" location="/resource/" />
+
+	<mvc:default-servlet-handler/>
+
+	<!--配置拦截器, 多个拦截器,顺序执行 -->
+	<mvc:interceptors>
+	    <mvc:interceptor>
+	        <!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
+	        <mvc:mapping path="/accountandpassword/**" />
+			<!--加解密拦截器-->
+	        <bean class="interceptor.EncryptInterceptor"/>
+	    </mvc:interceptor>
+	    <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
+	</mvc:interceptors>
 
 	<!-- StringHttpMessageConverter bean -->
 	<bean id = "stringHttpMessageConverter" class = "org.springframework.http.converter.StringHttpMessageConverter"/>
@@ -47,22 +60,20 @@
 
 	<!-- 配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序 order越小越优先，默认为最大的。 InternalResourceViewResolver放在最后。 -->
 	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+			class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="order" value="1" />
 		<property name="mediaTypes">
 			<map>
-				<entry key="json" value="application/json" />
-				<entry key="xml" value="application/xml" />
-				<entry key="htm" value="text/html" />
+				<entry key="json" value="application/json" /><!--处理以.json结尾的请求-->
+				<entry key="xml" value="application/xml" /><!--处理以.xml结尾的请求-->
+				<entry key="htm" value="text/html" /><!--处理以.html结尾的请求-->
 			</map>
 		</property>
 
 		<property name="defaultViews">
 			<list>
 				<!-- JSON View -->
-				<bean
-					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-				</bean>
+				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
 			</list>
 		</property>
 		<property name="ignoreAcceptHeader" value="true" />
@@ -70,6 +81,7 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="2" />
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/jsps/" />

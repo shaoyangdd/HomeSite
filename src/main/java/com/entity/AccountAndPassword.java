@@ -1,5 +1,10 @@
 package com.entity;
 
+/**
+ * <p>Description: 账号密码实体类</p>
+ * @author kangshaofei
+ * @date 2016年04月13日
+ */
 public class AccountAndPassword {
 
 	private int id;

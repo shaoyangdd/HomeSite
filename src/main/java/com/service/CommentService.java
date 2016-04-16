@@ -6,7 +6,7 @@ import java.util.Map;
 import com.entity.Comment;
 
 /**
- * <p>Description: 服务类接口</p>
+ * <p>Description: 评论服务类接口</p>
  * @author kangshaofei
  * @date 2016年1月17日
  */
