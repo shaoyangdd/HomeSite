@@ -106,6 +106,18 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
+		<!--redis 驱动包-->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<!--整合redis-->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.7.0.RELEASE</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>HomeSite</finalName>

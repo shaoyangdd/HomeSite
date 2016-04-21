@@ -73,4 +73,21 @@
 		</property>
 	</bean>
 
+	<!-- Redis 配置 start   http://blog.csdn.net/java2000_wl/article/details/8543203/-->
+	<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxIdle" value="${redis.maxIdle}" />
+		<property name="testOnBorrow" value="${redis.testOnBorrow}" />
+	</bean>
+
+	<bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="hostName" value="${redis.host}" />
+		<property name="port" value="${redis.port}" />
+		<!--<property name="password" value="${redis.pass}" />-->
+		<property name="poolConfig" ref="poolConfig" />
+	</bean>
+
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
+		<property name="connectionFactory"   ref="connectionFactory" />
+	</bean>
+	<!-- Redis 配置 end-->
 </beans>
