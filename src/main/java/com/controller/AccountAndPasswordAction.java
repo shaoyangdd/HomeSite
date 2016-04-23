@@ -36,23 +36,33 @@ public class AccountAndPasswordAction {
     public ModelAndView query(@RequestParam("count") String count, @RequestParam("name") String name) throws UnsupportedEncodingException, JsonProcessingException {
         logger.info("查询账号密码 find account and password start");
         ModelAndView mav = new ModelAndView();
-        logger.info("查询redis……find from redis start");
-        String resultString = RedisUtil.findFromRedis("resultList", redisTemplate);
-        logger.info("查询redis……find from redis end");
         String jsonResult;
-        if (StringUtil.isNotEmpty(resultString)) {
-            jsonResult = resultString;
-        } else {
+        //只缓存所有的，模糊查询的不从redis中查找，而是从mysql中查询
+        if(StringUtil.isEmpty(name)){
+            logger.info("name is empty!!");
+            logger.info("查询redis……find from redis start");
+            String resultString = RedisUtil.findFromRedis("resultList", redisTemplate);
+            logger.info("查询redis……find from redis end");
+            if (StringUtil.isNotEmpty(resultString)) {
+                jsonResult = resultString;
+            } else {
+                AccountAndPassword nap = new AccountAndPassword();
+                nap.setExtFld(count);
+                nap.setName(new String(name.getBytes(), "UTF-8"));
+                List<Map<String, Object>> resultList = accountAndPasswordService.query(nap);
+                ObjectMapper objectMapper = new ObjectMapper();
+                jsonResult = objectMapper.writeValueAsString(resultList);
+                logger.info("放入redis……put to redis start");
+                RedisUtil.putToRedis("resultList", jsonResult, redisTemplate);
+                logger.info("放入redis……put to redis end");
+            }
+        }else{
             AccountAndPassword nap = new AccountAndPassword();
             nap.setExtFld(count);
-            nap.setName(new String(name.getBytes(), "GBK"));
             nap.setName(new String(name.getBytes(), "UTF-8"));
             List<Map<String, Object>> resultList = accountAndPasswordService.query(nap);
             ObjectMapper objectMapper = new ObjectMapper();
             jsonResult = objectMapper.writeValueAsString(resultList);
-            logger.info("放入redis……put to redis start");
-            RedisUtil.putToRedis("resultList", jsonResult, redisTemplate);
-            logger.info("放入redis……put to redis end");
         }
         logger.info("查询账号密码 find account and password end");
         mav.addObject("resultList", jsonResult);
