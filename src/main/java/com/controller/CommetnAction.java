@@ -45,7 +45,7 @@ public class CommetnAction {
 	/**
 	 * 查询评论
 	 * ajax POST 请求响应都是json串
-	 * @param comment
+	 * @param count
 	 * @return list
 	 */
 	@RequestMapping(value="/queryComments.ajax", method = RequestMethod.GET)
