@@ -1,0 +1,16 @@
+UE
+MyEclipse
+FileZalla
+Xshell
+MysqlWorkBench
+Edge
+
+windows10
+linux (centos°æ±¾)
+nginx
+resin
+vsftpd
+maven
+mysql
+
+

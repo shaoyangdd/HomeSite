@@ -1,0 +1,2 @@
+1.设置某表支持事务
+ALTER TABLE homesite.AC_PWD TYPE = INNODB;

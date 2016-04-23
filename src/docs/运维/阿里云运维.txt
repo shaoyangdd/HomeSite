@@ -1,0 +1,52 @@
+更多见我的博客：http://blog.csdn.net/shaoyangdd
+
+
+Mysql
+
+	配置文件：
+		/etc/my.cnf但是配置没什么鸟用，好像不读它似的
+	启动，停止和重启：
+		service mysqld start;
+		service mysqld stop;
+		service mysqld restart;
+		或者到/etc/init.d目录下
+			./mysqld start
+			./mysqld stop
+			./mysqld restart
+
+mysql -u root -p
+输入密码
+show databases;
+use xxx;
+show tables;
+
+
+----------------------------------------------------------------------------- 	
+resin
+	启动停止重启
+		到/home/mysoftware/resin-4.0.36/bin目录下
+			./resin.sh start
+			./resin.sh stop
+			./resin.sh restart
+	日志文件：
+		/home/mysoftware/resin-4.0.36/log/jvm-app-0.log
+
+-----------------------------------------------------------------------------
+nginx
+        启动停止重启
+		启动：
+		cd /usr/local/nginx/sbin
+		 ./nginx 
+		停止：
+		ps -ef | grep nginx
+		 kill -QUIT 20195
+
+-----------------------------------------------------------------------------
+
+redis
+
+
+清除所有
+	flushall
+
+后台启动：nohup ./redis-server &
